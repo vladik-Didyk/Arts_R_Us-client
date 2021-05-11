@@ -56,7 +56,7 @@ const PictureUpload = () => {
                     id="inputGroupFile02"
                   />
                   <label
-                    className="input-group-text"
+                    className="input-group-text "
                     htmlFor="inputGroupFile02"
                   >
                     Upload
@@ -81,7 +81,7 @@ const PictureUpload = () => {
               )}
 
               <div className="d-flex justify-content-center">
-                <button className="btn btn-secondary mt-1 " type="submit">
+                <button className="btn btn-dark rounded-pill mt-1 " type="submit">
                   Upload
                 </button>
               </div>

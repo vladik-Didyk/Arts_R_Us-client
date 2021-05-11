@@ -10,7 +10,7 @@ class Home extends React.Component {
     return (
       <div>
         <div className="container">
-          <h1 className="text-center mt-5">im main component</h1>
+          <h1 className="text-center p-5 mt-5">im main component</h1>
           <p className="text-center mb-4">
             description about the app and how to use it
           </p>
