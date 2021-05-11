@@ -8,7 +8,7 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div>
+
         <div className="container pt-5 mt-5 ">
           <div className="">
             <div>
@@ -34,7 +34,7 @@ class Home extends React.Component {
           {/* insert component here */}
           <PictureUpload />
         </div>
-      </div>
+
     );
   }
 }

@@ -5,8 +5,6 @@ import Signup from "./auth/Signup";
 import Modal from 'react-modal';
 
 
-
-
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -28,22 +26,32 @@ class NavBar extends React.Component {
       <>
       <div className="pb-5">
         <nav className="d-flex  navbar fixed-top shadow bg-gradient rounded-2 w-100 ">
-          <Link className="mx-4 nav-link text-dark" to="/">
+          <Link className="mx-4 nav-link text-dark" 
+                to="/">
             <span className="material-icons d-inline-block align-text-top ">home</span>
           </Link>
-          <Link className="nav-link text-dark" to="/one">
-            <span>one</span>
+          <Link className="nav-link text-dark" 
+                to="/ListOfUsers">
+            <span>ListOfUsers</span>
           </Link>
-          <Link className="nav-link text-dark" to="/two">
-            <span>two</span>
+          <Link className="nav-link text-dark" 
+                to="/LiveAuctioneers">
+            <span>Auctioneers</span>
           </Link>
-          <Link className="nav-link text-dark" to="/three">
+          <Link className="nav-link text-dark" 
+                to="/three">
             <span>three</span>
           </Link>
 
           <form className="d-flex">
-            <button onClick={() => this.onLoginClicked()} className="me-2 nav-link  btn btn-sm btn-outline-dark rounded-pill" type="button">Log In</button>
-            <button onClick={() => this.onSignupClicked()} className="me-4 nav-link text-white btn btn-sm btn-dark rounded-pill" type="button" >Sign Up</button>
+            <button onClick={() => this.onLoginClicked()} 
+                    className="me-2 nav-link  btn btn-sm btn-outline-dark rounded-pill" 
+                    type="button">Log In
+            </button>
+            <button onClick={() => this.onSignupClicked()} 
+                    className="me-4 nav-link text-white btn btn-sm btn-dark rounded-pill" 
+                      type="button" >Sign Up
+            </button>
           </form>
         </nav>
 
