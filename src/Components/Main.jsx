@@ -1,13 +1,23 @@
 import React from "react";
-import PictureUpload from "./PictureUpload";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavBar from "./NavBar";
+import Home from "./Home";
 
 const Main = () => {
   return (
-    <div className="container">
-      <h1 className="text-center mt-5">im main component</h1>
-      <p className="text-center mb-4">description about the app and how to use it</p>
-      {/* insert component here */}
-      <PictureUpload/>
+    <div>
+      <Router>
+        <div>
+          <NavBar />
+
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {/* <Route path="/two" component={two} />
+            <Route path="/three" component={three} />
+            <Route path="/four" component={four} /> */}
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 };
