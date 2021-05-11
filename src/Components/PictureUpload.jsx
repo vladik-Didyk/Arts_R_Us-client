@@ -55,12 +55,12 @@ const PictureUpload = () => {
                     onChange={(e) => uploadPicture(e.target.files[0])}
                     id="inputGroupFile02"
                   />
-                  <label
+                  {/* <label
                     className="input-group-text "
                     htmlFor="inputGroupFile02"
                   >
                     Upload
-                  </label>
+                  </label> */}
                 </div>
               </div>
             </div>

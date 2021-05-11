@@ -26,7 +26,8 @@ class NavBar extends React.Component {
   render() {
     return (
       <>
-        <nav className="d-flex  navbar fixed-top shadow bg-gradient rounded-2 w-100">
+      <div className="pb-5">
+        <nav className="d-flex  navbar fixed-top shadow bg-gradient rounded-2 w-100 ">
           <Link className="mx-4 nav-link text-dark" to="/">
             <span className="material-icons d-inline-block align-text-top ">home</span>
           </Link>
@@ -48,20 +49,20 @@ class NavBar extends React.Component {
 
         <Modal
                 isOpen={this.state.loginModalIsOpen}
-                onRequestClose={() => this.setState({ loginModalIsOpen: true })}       
+                onRequestClose={() => this.setState({ loginModalIsOpen: false })}       
                 ariaHideApp={false}
-                className="w-25 m-auto my-5 shadow rounded ">
+                className=" w-25 m-auto mt-5 shadow rounded ">
                 <Login closeLoginModal={() => this.setState({ loginModalIsOpen: false })} />
             </Modal>
             <Modal
                 isOpen={this.state.signupModalIsOpen}
                 onRequestClose={() =>  this.setState({ signupModalIsOpen: false })}
                 ariaHideApp={false}
-                className="w-25 m-auto my-5 shadow rounded "
+                className="w-25 m-auto mt-5 shadow rounded "
             >
                 <Signup closeSignupModal={() => this.setState({ signupModalIsOpen: false })} />
             </Modal>
-
+            </div>
 
       </>
 
