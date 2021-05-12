@@ -2,15 +2,33 @@ import React from "react";
 import { useState } from "react";
 import Modal from "react-modal";
 import { createPicture } from "../lib/api";
+import { Link } from "react-router-dom";
 
 const PictureUpload = () => {
   const [showValidationError, setShowValidationError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [picture, setPicture] = useState();
+  const [picturesData, setPicturesData] = useState([]);
 
   async function addNewPicture(picture) {
-    const data = await createPicture(picture);
-    return data;
+    try {
+      const data = await createPicture(picture);
+      if (data && !isPictureAlreadyExists(picturesData, data.fileName)) {
+        const arr = [data, ...picturesData];
+        setPicturesData(arr);
+      }
+      else {
+        setModalIsOpen(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
+
+  function isPictureAlreadyExists(picturesData, pictureName) {
+    const data = picturesData.find(e => e.fileName === pictureName);
+    return data ? true : false;
   }
 
   function closeButton() {
@@ -26,6 +44,7 @@ const PictureUpload = () => {
     event.preventDefault();
     if (picture) {
       try {
+        setShowValidationError(false);
         await addNewPicture(picture);
         setModalIsOpen(true);
       } catch (err) {
@@ -45,8 +64,7 @@ const PictureUpload = () => {
             onSubmit={(event) => handleFormSubmit(event)}
           >
             <h1 className="text-center mb-4" id="p">Picture Upload</h1>
-            <div className="row mb-3">
-              {/* <label className="col-sm-2 col-form-label">Picture</label> */}
+            <div className="row mb-3 ">
               <div className="">
                 <div className=" input-group mb-1">
                   <input
@@ -55,12 +73,6 @@ const PictureUpload = () => {
                     onChange={(e) => uploadPicture(e.target.files[0])}
                     id="inputGroupFile02"
                   />
-                  {/* <label
-                    className="input-group-text "
-                    htmlFor="inputGroupFile02"
-                  >
-                    Upload
-                  </label> */}
                 </div>
               </div>
             </div>
@@ -89,6 +101,27 @@ const PictureUpload = () => {
           </form>
         </div>
       </div>
+      <ul className=" list-unstyled" >
+        {picturesData && picturesData.map((item) =>
+          <li className=" "  >
+            <div className="card mb-4" width="540">
+              <div className="row g-0" >
+                <div className="col-md-4">
+                  <img src={item.path} className="card-img-top" alt="..." height="300" />
+                </div>
+                {/* <p>{item.id}</p> */}
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h1 className="card-title">{item.title}</h1>
+                    <p className="card-text">{item.text}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        )}
+      </ul>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -96,7 +129,7 @@ const PictureUpload = () => {
         className="pt-5 w-25 m-auto mt-5"
       >
         <div
-          className="d-flex justify-content-center alert alert-warning mt-2 alert-dismissible fade show"
+          className="d-flex justify-content-center alert alert-warning mt-2 alert-dismissible fade show p-5"
           role="alert"
         >
           The picture was uploaded!
