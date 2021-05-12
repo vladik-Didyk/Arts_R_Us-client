@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import ListOfUsers from './ListOfUsers/ListOfUsers'
+import Tiles from './Tiles/Tiles'
 import LiveAuctioneers from './LiveAuctioneers/LiveAuctioneers'
 
 const Main = () => {
@@ -10,7 +10,7 @@ const Main = () => {
       <Router>
           <NavBar />
             <Switch>
-               <Route path="/ListOfUsers" component={ListOfUsers} />
+               <Route path="/Tiles" component={Tiles} />
                <Route path="/LiveAuctioneers" component={LiveAuctioneers} />
               {/* <Route path="/four" component={four} />  */} 
             <Route exact path="/" component={Home} />

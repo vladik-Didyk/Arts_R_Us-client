@@ -1,0 +1,25 @@
+
+.tiles {
+  padding: 6vh 16vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+.tile {
+  margin: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 18vw;
+  height: 18vw;
+}
+img {
+  width: 100%;
+  transition: transform 500ms ease;
+  
+}
+img:hover {
+  transform: scale(1.1);
+
+}

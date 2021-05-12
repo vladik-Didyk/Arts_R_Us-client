@@ -31,8 +31,8 @@ class NavBar extends React.Component {
             <span className="material-icons d-inline-block align-text-top ">home</span>
           </Link>
           <Link className="nav-link text-dark" 
-                to="/ListOfUsers">
-            <span>ListOfUsers</span>
+                to="/Tiles">
+            <span>Art</span>
           </Link>
           <Link className="nav-link text-dark" 
                 to="/LiveAuctioneers">
