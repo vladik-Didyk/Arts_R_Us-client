@@ -44,7 +44,7 @@ const PictureUpload = () => {
             className=" justify-content-center p-5 bg-white mt-2 "
             onSubmit={(event) => handleFormSubmit(event)}
           >
-            <h1 className="text-center mb-4">Picture Upload</h1>
+            <h1 className="text-center mb-4" id="p">Picture Upload</h1>
             <div className="row mb-3">
               {/* <label className="col-sm-2 col-form-label">Picture</label> */}
               <div className="">
