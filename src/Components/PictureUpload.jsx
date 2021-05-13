@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Modal from "react-modal";
 import { createPicture } from "../lib/api";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const PictureUpload = () => {
   const [showValidationError, setShowValidationError] = useState(false);
@@ -16,18 +16,16 @@ const PictureUpload = () => {
       if (data && !isPictureAlreadyExists(picturesData, data.fileName)) {
         const arr = [data, ...picturesData];
         setPicturesData(arr);
-      }
-      else {
+      } else {
         setModalIsOpen(false);
       }
     } catch (err) {
       console.log(err);
     }
-
   }
 
   function isPictureAlreadyExists(picturesData, pictureName) {
-    const data = picturesData.find(e => e.fileName === pictureName);
+    const data = picturesData.find((e) => e.fileName === pictureName);
     return data ? true : false;
   }
 
@@ -63,7 +61,9 @@ const PictureUpload = () => {
             className=" justify-content-center p-5 bg-white mt-2 "
             onSubmit={(event) => handleFormSubmit(event)}
           >
-            <h1 className="text-center mb-4" id="p">Picture Upload</h1>
+            <h1 className="text-center mb-4" id="p">
+              Picture Upload
+            </h1>
             <div className="row mb-3 ">
               <div className="">
                 <div className=" input-group mb-1">
@@ -93,7 +93,10 @@ const PictureUpload = () => {
               )}
 
               <div className="d-flex justify-content-center">
-                <button className="btn btn-dark rounded-pill mt-1 " type="submit">
+                <button
+                  className="btn btn-dark rounded-pill mt-1 "
+                  type="submit"
+                >
                   Upload
                 </button>
               </div>
@@ -101,25 +104,31 @@ const PictureUpload = () => {
           </form>
         </div>
       </div>
-      <ul className=" list-unstyled" >
-        {picturesData && picturesData.map((item) =>
-          <li className=" "  >
-            <div className="card mb-4" width="540">
-              <div className="row g-0" >
-                <div className="col-md-4">
-                  <img src={item.path} className="card-img-top" alt="..." height="300" />
-                </div>
-                {/* <p>{item.id}</p> */}
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h1 className="card-title">{item.title}</h1>
-                    <p className="card-text">{item.text}</p>
+      <ul className=" list-unstyled">
+        {picturesData &&
+          picturesData.map((item) => (
+            <li className=" ">
+              <div className="card mb-4" width="540">
+                <div className="row g-0">
+                  <div className="col-md-4">
+                    <img
+                      src={item.path}
+                      className="card-img-top"
+                      alt="..."
+                      height="300"
+                    />
+                  </div>
+                  {/* <p>{item.id}</p> */}
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h1 className="card-title">{item.title}</h1>
+                      <p className="card-text">{item.text}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </li>
-        )}
+            </li>
+          ))}
       </ul>
 
       <Modal
