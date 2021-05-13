@@ -4,6 +4,7 @@
 
 export async function getPictureData(pictureName) {
   const pictureData = jsonMock.find((e) => e.fileName === pictureName);
+  if (!pictureData) return jsonMock[Math.floor(Math.random() * 7)];
   return pictureData;
 }
 
